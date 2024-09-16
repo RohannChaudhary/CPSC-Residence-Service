@@ -1,0 +1,159 @@
+{% load static%}
+<style>
+  
+  input {
+    caret-color: red;
+  }
+  
+  body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(https://ucalgary.starrezhousing.com/StarRezPortalX/File/GetImage?imageName=ya.jpg&tableName=PortalPageWidget&tableID=191&dateCreatedTicks=637387857626928136&hash=0266E7A4);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+    overflow: hidden;
+    font-family: poppins;
+  }
+  
+  .container {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ffffff;
+    box-shadow: 14px 14px 40px #362726, -14px -14px 40px #362726;
+  }
+  
+  .brand-logo {
+    height: 100px;
+    width: 100px;
+    background: url(https://www.ucalgary.ca/sites/default/files/styles/ucws_image_desktop/public/2020-07/UC-1.jpg?itok=teKbFPDq);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 7px 7px 10px #342220, -7px -7px 10px white;
+  }
+  
+  .brand-title {
+    margin-top: 10px;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #342220;
+    letter-spacing: 1px;
+  }
+  
+  .inputs {
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  label, input, button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  label {
+    margin-bottom: 4px;
+  }
+  
+  label:nth-of-type(2) {
+    margin-top: 12px;
+  }
+  
+  input::placeholder {
+    color: gray;
+  }
+  
+  input {
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  }
+  
+  button {
+    color: #f3dad7;
+    margin-top: 20px;
+    background: #f3dad7;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 6px 6px 15px #362726, -6px -6px 15px #362726;
+    transition: 0.5s;
+  }
+  
+  button:hover {
+    box-shadow: none;
+  }
+  
+  a {
+    position: absolute;
+    font-size: 8px;
+    bottom: 4px;
+    right: 4px;
+    text-decoration: none;
+    color: black;
+    background: yellow;
+    border-radius: 10px;
+    padding: 2px;
+  }
+  
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  input[type=submit] {
+    background-color: #FFAE42;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.mainLoginInput::-moz-placeholder {
+  font-family: 'myFont', Italic, Helvetica, sans-serif;
+  font-style : italic ;
+}
+
+
+</style>
+<title>UofC Login Portal</title>
+<link href="{% static 'assets/img/UofCCoat.png' %}" rel="icon">
+
+
+<div class="container">
+  <div class="brand-logo"></div>
+  <div class="brand-title">Residence Services</div>
+  {% for message in messages%}
+  <h5>{{message}}</h5>
+  {% endfor %}
+  <form class="input" action = "login" method = "POST">
+      {% csrf_token %}
+     <p>Username: </p>  
+     <input class = "mainLoginInput" type = "text" name = "username"  placeholder="Enter Username"> 
+     <p>Password: </p>
+     <input class = "mainLoginInput" type = "password" name = "password" placeholder= "Enter Password"> </br>
+     <input type="submit" value = "Login"/>
+
